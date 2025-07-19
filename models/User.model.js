@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
         unique:true,
         lowercase:true,
     },
-    Name:{
+    name:{
         required:true,
         type:String,
     },
@@ -34,7 +34,7 @@ UserSchema.pre('save', function (next){
     })
 });
 
-UserSchema.methods.ComparePass = function (password){
+UserSchema.methods.comparePass = function (password){
     return bcrypt.compare(password, this.password);
 }
 

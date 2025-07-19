@@ -1,7 +1,11 @@
 class ApiResponse {
 
-    static respond = (res, statusCode, data, message) => {
-        return res.status(statusCode).json({ ...data });
+    static respond = (res, code, data, message) => {
+        return res.status(code).json({ ...data, message});
+    }
+
+    static send = (res,code,message)=>{
+        return res.status(code).send(message);
     }
 }
 
